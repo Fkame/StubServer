@@ -1,4 +1,4 @@
-package ni.shi.app.service.json.generator.template.custom;
+package ni.shi.app.service.json.generator.template.by_fields_types;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -12,12 +12,12 @@ import java.nio.file.Paths;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @Slf4j
-public class TestJsonCustomTemplateGenerator {
+public class TestJsonGeneratorByFieldType {
 
     @Test
     @SneakyThrows
     void testReturnGeneratedData() {
-        JsonCustomTemplateGenerator generator = new JsonCustomTemplateGenerator();
+        JsonGeneratorByFieldType generator = new JsonGeneratorByFieldType();
         URL pathToJson =
                 JacksonTest.class.getResource("/jackson-test/real-deal-test-json.json");
         String json = Files.readString(Paths.get(pathToJson.toURI()));

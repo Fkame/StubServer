@@ -2,7 +2,7 @@ package ni.shi.app.controller.rest;
 
 import ni.shi.app.controller.dto.FullyRandomJsonParamsDto;
 import ni.shi.app.service.json.generator.completely.CompletelyRandomJsonGenerator;
-import ni.shi.app.service.json.generator.template.custom.JsonCustomTemplateGenerator;
+import ni.shi.app.service.json.generator.template.by_fields_types.JsonGeneratorByFieldType;
 import ni.shi.app.service.json.generator.template.embedded.JsonByTemplateGenerator;
 import ni.shi.app.utils.StructureComplexity;
 import org.springframework.http.MediaType;
@@ -36,7 +36,7 @@ public class RandomJsonController {
 
     @PostMapping(value = "/random/fill-only")
     public ResponseEntity<String> getRandomJsonFromUserTemplate(@RequestBody String jsonTemplate) {
-        JsonCustomTemplateGenerator jsonGenerator = new JsonCustomTemplateGenerator();
+        JsonGeneratorByFieldType jsonGenerator = new JsonGeneratorByFieldType();
         String json = jsonGenerator.generateByCustomTemplate(jsonTemplate);
         if (json == null) {
             return ResponseEntity.internalServerError().body("Cannot create json, sorry(");
