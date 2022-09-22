@@ -1,0 +1,16 @@
+{
+  "field1": "WORD",
+  "field2": "day",
+  "array1": [
+    "moNey",
+    "string",
+    "country"
+  ],
+  "object1": {
+    "name": "NAME",
+    "Address": "Address",
+    "user": "user",
+    "password": "gaysword",
+    "date": "DATE"
+  }
+}

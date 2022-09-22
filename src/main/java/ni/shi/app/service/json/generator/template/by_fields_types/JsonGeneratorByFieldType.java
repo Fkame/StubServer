@@ -69,20 +69,9 @@ public class JsonGeneratorByFieldType {
         if (node.isArray() || node.isObject()) {
             throw new IllegalArgumentException();
         }
-        int idx = -1;
-        for (JsonNode subNode : parentNode) {
-            idx += 1;
-            if (subNode.equals(node)) {
-                break;
-            }
-        }
-        if (idx == parentNode.size()) {
-            throw new IllegalArgumentException("Parent object node: " + parentNode +
-                    " does not contains node: " + node);
-        }
-
+        Integer nodeIdxInArray = findFieldInArray(parentNode, node);
         ExclusiveJsonNode universalParentNode = ExclusiveJsonNode.createAsArray(parentNode);
-        generateValuesUniversally(universalParentNode, node, null, idx);
+        generateValuesUniversally(universalParentNode, node, null, nodeIdxInArray);
     }
 
     private void generateValuesUniversally(ExclusiveJsonNode parentNode, JsonNode node,
@@ -113,6 +102,21 @@ public class JsonGeneratorByFieldType {
                 " does not contains node " + node);
     }
 
+    private int findFieldInArray(JsonNode parentNode, JsonNode node) {
+        int idx = -1;
+        for (JsonNode subNode : parentNode) {
+            idx += 1;
+            if (subNode.equals(node)) {
+                break;
+            }
+        }
+        if (idx == parentNode.size()) {
+            throw new IllegalArgumentException("Parent object node: " + parentNode +
+                    " does not contains node: " + node);
+        }
+        return idx;
+    }
+
     @Getter
     private static class ExclusiveJsonNode {
         private ObjectNode objectNode = null;
@@ -131,35 +135,11 @@ public class JsonGeneratorByFieldType {
             return array;
         }
 
-        public void updateNodeData(String nodeFieldName, Integer valueIdx, boolean generated) {
+        public <T> void updateNodeData(String nodeFieldName, Integer valueIdx, T generated) {
             if (objectNode != null) {
-                objectNode.put(nodeFieldName, generated);
+                objectNode.put(nodeFieldName, generated.toString());
             } else {
-                arrayNode.set(valueIdx.intValue(), generated);
-            }
-        }
-
-        public void updateNodeData(String nodeFieldName, Integer valueIdx, int generated) {
-            if (objectNode != null) {
-                objectNode.put(nodeFieldName, generated);
-            } else {
-                arrayNode.set(valueIdx.intValue(), generated);
-            }
-        }
-
-        public void updateNodeData(String nodeFieldName, Integer valueIdx, double generated) {
-            if (objectNode != null) {
-                objectNode.put(nodeFieldName, generated);
-            } else {
-                arrayNode.set(valueIdx.intValue(), generated);
-            }
-        }
-
-        public void updateNodeData(String nodeFieldName, Integer valueIdx, String generated) {
-            if (objectNode != null) {
-                objectNode.put(nodeFieldName, generated);
-            } else {
-                arrayNode.set(valueIdx.intValue(), generated);
+                arrayNode.set(valueIdx, generated.toString());
             }
         }
 

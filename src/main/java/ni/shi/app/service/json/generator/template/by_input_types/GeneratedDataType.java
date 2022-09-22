@@ -8,14 +8,16 @@ public enum GeneratedDataType {
     BOOL,
     DATE,
 
+    DAY,
+
     CITY,
     COUNTRY,
 
-    USER,
     PASSWORD,
     NAME,
     GENDER,
     EMAIL,
+    ADDRESS,
 
     STRING,
 
