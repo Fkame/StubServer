@@ -1,0 +1,39 @@
+{
+  "random": "46",
+  "random float": "89.703",
+  "bool": "true",
+  "date": "1998-06-09",
+  "regEx": "hellooooooooooooooooooooooooooooooooooooooooooooooooooooooo to you",
+  "enum": "online",
+  "firstname": "Eve",
+  "lastname": "Maroney",
+  "city": "Montevideo",
+  "country": "Sierra Leone",
+  "countryCode": "VA",
+  "email uses current data": "Eve.Maroney@gmail.com",
+  "email from expression": "Eve.Maroney@yopmail.com",
+  "array": [
+    "Mariele",
+    "Amii",
+    "Arabel",
+    "Elka",
+    "Dale"
+  ],
+  "array of objects": [
+    {
+      "index": "0",
+      "index start at 5": "5"
+    },
+    {
+      "index": "1",
+      "index start at 5": "6"
+    },
+    {
+      "index": "2",
+      "index start at 5": "7"
+    }
+  ],
+  "Winifred": {
+    "age": "37"
+  }
+}
