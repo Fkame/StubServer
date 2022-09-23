@@ -25,6 +25,7 @@ public class RandomJsonController {
         return ResponseEntity.ok(json);
     }
 
+    @Deprecated
     @GetMapping(value = "/random/completely")
     public ResponseEntity<String> getRandomJson(@RequestBody FullyRandomJsonParamsDto generationParams) {
         CompletelyRandomJsonGenerator jsonGenerator = new CompletelyRandomJsonGenerator();

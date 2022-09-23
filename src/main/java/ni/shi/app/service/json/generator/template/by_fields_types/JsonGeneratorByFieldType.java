@@ -13,7 +13,8 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Map;
 
-import static net.andreinc.mockneat.unit.text.Strings.strings;
+import static net.andreinc.mockneat.types.enums.MarkovChainType.LOREM_IPSUM;
+import static net.andreinc.mockneat.unit.text.Markovs.markovs;
 import static net.andreinc.mockneat.unit.types.Bools.bools;
 import static net.andreinc.mockneat.unit.types.Doubles.doubles;
 import static net.andreinc.mockneat.unit.types.Ints.ints;
@@ -83,7 +84,7 @@ public class JsonGeneratorByFieldType {
         } else if (node.isInt()) {
             parentNode.updateNodeData(fieldName, valueIdx, ints().get());
         } else if (node.isTextual()) {
-            parentNode.updateNodeData(fieldName, valueIdx, strings().get());
+            parentNode.updateNodeData(fieldName, valueIdx, markovs().size(10).type(LOREM_IPSUM).get());
         } else {
             log.warn("Unknown node type: " + node.getNodeType());
         }

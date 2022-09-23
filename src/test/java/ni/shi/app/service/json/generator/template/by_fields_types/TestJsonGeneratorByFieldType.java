@@ -16,7 +16,7 @@ public class TestJsonGeneratorByFieldType {
 
     @Test
     @SneakyThrows
-    void testReturnGeneratedData() {
+    void testGenerateByCustomTemplate() {
         JsonGeneratorByFieldType generator = new JsonGeneratorByFieldType();
         URL pathToJson =
                 JacksonTest.class.getResource("/jackson-test/real-deal-test-json.json");
