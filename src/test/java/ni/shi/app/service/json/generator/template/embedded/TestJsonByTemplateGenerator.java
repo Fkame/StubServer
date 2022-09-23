@@ -62,5 +62,6 @@ public class TestJsonByTemplateGenerator {
         for (Field field: ComplexJsonDto.class.getDeclaredFields()) {
             assertThat(json.contains(field.getName())).isTrue();
         }
+        log.info(json);
     }
 }

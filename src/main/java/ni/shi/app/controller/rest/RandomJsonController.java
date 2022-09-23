@@ -49,7 +49,7 @@ public class RandomJsonController {
     @PostMapping(value = "/random/by-input-types")
     public ResponseEntity<String> regenerateJsonByInputTypes(@RequestBody String jsonTemplate) {
         JsonGeneratorByInputTypes jsonGenerator = new JsonGeneratorByInputTypes();
-        String json = jsonGenerator.generateByCustomTemplate(jsonTemplate);
+        String json = jsonGenerator.generateByInputTemplate(jsonTemplate);
         if (json == null) {
             return ResponseEntity.internalServerError().body("Cannot create json, sorry(");
         }

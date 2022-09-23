@@ -16,14 +16,14 @@ public class TestJsonGeneratorByInputTypes {
 
     @Test
     @SneakyThrows
-    void testReturnGeneratedData() {
+    void testGenerateByInputTemplate() {
         JsonGeneratorByInputTypes generator = new JsonGeneratorByInputTypes();
         URL pathToJson =
                 JacksonTest.class.getResource("/jackson-test/test-json-template-fields.json");
         String json = Files.readString(Paths.get(pathToJson.toURI()));
 
         log.info("InputData: " + json);
-        String output = generator.generateByCustomTemplate(json);
+        String output = generator.generateByInputTemplate(json);
         log.info("OutputData: " + output);
 
         assertThat(output).isNotNull();

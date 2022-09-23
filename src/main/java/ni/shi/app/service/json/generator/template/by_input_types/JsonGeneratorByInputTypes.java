@@ -34,7 +34,7 @@ import static net.andreinc.mockneat.unit.user.Passwords.passwords;
 
 @Slf4j
 public class JsonGeneratorByInputTypes {
-    public String generateByCustomTemplate(String customTemplate) {
+    public String generateByInputTemplate(String customTemplate) {
         ObjectMapper jsonMapper = new ObjectMapper();
         try {
             JsonNode rootNode = jsonMapper.readTree(customTemplate);
