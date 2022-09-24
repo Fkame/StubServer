@@ -1,6 +1,7 @@
 package ni.shi.app.controller.rest;
 
 import com.thedeanda.lorem.LoremIpsum;
+import ni.shi.app.AOP.logging.ToLog;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ public class RandomTextController {
     private static final Random rand = new Random();
 
     @GetMapping("/loreum")
+    @ToLog
     public String getTextLoreum(@RequestParam(name = "min-paragraphs", defaultValue = "2", required = false)
                                 Integer minParagraphs,
                                 @RequestParam(name = "max-paragraphs", defaultValue = "4", required = false)
@@ -23,6 +25,7 @@ public class RandomTextController {
     }
 
     @GetMapping("/random")
+    @ToLog
     public String getRandomText(@RequestParam(name = "min-words", defaultValue = "10", required = false)
                                 Integer minWords,
                                 @RequestParam(name = "max-words", defaultValue = "50", required = false)

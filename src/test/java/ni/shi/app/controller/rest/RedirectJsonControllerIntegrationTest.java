@@ -68,7 +68,7 @@ public class RedirectJsonControllerIntegrationTest {
             int status = i;
             webTestClient.post()
                     .uri(uriBuilder ->  uriBuilder
-                            .path("/v1/rest/return-json-back")
+                            .path("/v1/rest/json/get-back")
                             .queryParam("status", testData.get(status).getReqStatus())
                             .build()
                     )

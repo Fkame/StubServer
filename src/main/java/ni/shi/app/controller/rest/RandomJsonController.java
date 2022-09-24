@@ -1,5 +1,6 @@
 package ni.shi.app.controller.rest;
 
+import ni.shi.app.AOP.logging.ToLog;
 import ni.shi.app.controller.dto.FullyRandomJsonParamsDto;
 import ni.shi.app.service.json.generator.completely.CompletelyRandomJsonGenerator;
 import ni.shi.app.service.json.generator.template.by_fields_types.JsonGeneratorByFieldType;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 public class RandomJsonController {
 
     @GetMapping(value = "/random/embedded-template")
+    @ToLog
     public ResponseEntity<String> getRandomJsonByEmbeddedTemplate(@RequestParam(name = "complexity", required = true)
                                                                   StructureComplexity structureComplexity) {
         JsonByTemplateGenerator jsonGenerator = new JsonByTemplateGenerator();
@@ -37,6 +39,7 @@ public class RandomJsonController {
     }
 
     @PostMapping(value = "/random/by-field-types")
+    @ToLog
     public ResponseEntity<String> regenerateJsonByFieldsTypes(@RequestBody String jsonTemplate) {
         JsonGeneratorByFieldType jsonGenerator = new JsonGeneratorByFieldType();
         String json = jsonGenerator.generateByCustomTemplate(jsonTemplate);
@@ -47,6 +50,7 @@ public class RandomJsonController {
     }
 
     @PostMapping(value = "/random/by-input-types")
+    @ToLog
     public ResponseEntity<String> regenerateJsonByInputTypes(@RequestBody String jsonTemplate) {
         JsonGeneratorByInputTypes jsonGenerator = new JsonGeneratorByInputTypes();
         String json = jsonGenerator.generateByInputTemplate(jsonTemplate);
