@@ -40,7 +40,7 @@ public class RandomJsonController {
 
     @PostMapping(value = "/random/by-field-types")
     @ToLog
-    public ResponseEntity<String> regenerateJsonByFieldsTypes(@RequestBody String jsonTemplate) {
+    public ResponseEntity<String> generateJsonByFieldsTypes(@RequestBody String jsonTemplate) {
         JsonGeneratorByFieldType jsonGenerator = new JsonGeneratorByFieldType();
         String json = jsonGenerator.generateByCustomTemplate(jsonTemplate);
         if (json == null) {
@@ -51,7 +51,7 @@ public class RandomJsonController {
 
     @PostMapping(value = "/random/by-input-types")
     @ToLog
-    public ResponseEntity<String> regenerateJsonByInputTypes(@RequestBody String jsonTemplate) {
+    public ResponseEntity<String> generateJsonByInputTypes(@RequestBody String jsonTemplate) {
         JsonGeneratorByInputTypes jsonGenerator = new JsonGeneratorByInputTypes();
         String json = jsonGenerator.generateByInputTemplate(jsonTemplate);
         if (json == null) {

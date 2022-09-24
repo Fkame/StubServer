@@ -1,4 +1,4 @@
-package ni.shi.app;
+package ni.shi.app.test;
 
 import com.thedeanda.lorem.Lorem;
 import com.thedeanda.lorem.LoremIpsum;
