@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
+@Deprecated
 public class FullyRandomJsonParamsDto {
 
     private int elementsAmount;
