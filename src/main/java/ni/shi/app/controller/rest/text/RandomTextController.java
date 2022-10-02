@@ -1,4 +1,4 @@
-package ni.shi.app.controller.rest;
+package ni.shi.app.controller.rest.text;
 
 import com.thedeanda.lorem.LoremIpsum;
 import ni.shi.app.AOP.logging.ToLog;

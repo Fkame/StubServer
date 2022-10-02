@@ -26,7 +26,6 @@ public class LoggingExecutionTimeAspect {
         Object returnValue = joinPoint.proceed();
         long endTime = System.currentTimeMillis();
 
-
         BigDecimal executionTimeMillis = BigDecimal.valueOf(endTime)
                 .subtract(BigDecimal.valueOf(startTime))
                 .setScale(3, RoundingMode.HALF_UP);
@@ -37,7 +36,7 @@ public class LoggingExecutionTimeAspect {
         String methodName = joinPoint.getSignature().getName();
         log.info(
                 String.format(LOG_TEMPLATE, methodName,
-                startTime, endTime, executionTimeMillis, executionTimeSeconds)
+                        startTime, endTime, executionTimeMillis, executionTimeSeconds)
         );
 
         return returnValue;

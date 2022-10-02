@@ -1,6 +1,5 @@
-package ni.shi.app.controller.rest;
+package ni.shi.app.controller.rest.json;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -46,7 +45,6 @@ public class RandomJsonControllerTest {
     @Test
     @SneakyThrows
     void testGenerateByCustomTemplate() {
-        ObjectMapper jsonReader = new ObjectMapper();
         Path pathToJson = Path.of(this.getClass()
                 .getResource("/jackson-test/real-deal-test-json.json")
                 .toURI());
@@ -65,7 +63,6 @@ public class RandomJsonControllerTest {
     @Test
     @SneakyThrows
     void testGenerateJsonByInputTypes() {
-        ObjectMapper jsonReader = new ObjectMapper();
         Path pathToJson = Path.of(this.getClass()
                 .getResource("/jackson-test/test-json-template-fields.json")
                 .toURI());
@@ -90,6 +87,5 @@ public class RandomJsonControllerTest {
                         .content(json))
                 .andDo(print())
                 .andExpect(status().is2xxSuccessful());
-
     }
 }

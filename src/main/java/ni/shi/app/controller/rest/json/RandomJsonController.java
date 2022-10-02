@@ -1,4 +1,4 @@
-package ni.shi.app.controller.rest;
+package ni.shi.app.controller.rest.json;
 
 import ni.shi.app.AOP.logging.ToLog;
 import ni.shi.app.controller.dto.FullyRandomJsonParamsDto;

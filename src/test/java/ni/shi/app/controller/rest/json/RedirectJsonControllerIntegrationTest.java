@@ -1,4 +1,4 @@
-package ni.shi.app.controller.rest;
+package ni.shi.app.controller.rest.json;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,13 +20,13 @@ public class RedirectJsonControllerIntegrationTest {
 
     private final Random rand = new Random();
 
-    String[] testJsons = new String[] {
+    String[] testJsons = new String[]{
             "\"random\": \"1\"",
 
             "\"firstname\": \"Shel\",\n" +
                     "\"lastname\": \"Mott\"",
 
-            "\"array\": [\n"+
+            "\"array\": [\n" +
                     "\"Sara-Ann\",\n" +
                     "\t\t\"Clo\",\n" +
                     "\t\t\"Sam\",\n" +
@@ -50,14 +50,14 @@ public class RedirectJsonControllerIntegrationTest {
                     "\t]"
     };
 
-    int[] statuses = new int[] {200, 404, 502, 202};
+    int[] statuses = new int[]{200, 404, 502, 202};
 
     @Test
     public void restReturnJsonBack() {
         List<ReqPair> testData = Arrays.stream(testJsons).map(json -> ReqPair.builder()
-                    .reqJson(json)
-                    .reqStatus(statuses[rand.nextInt(statuses.length)])
-                    .build())
+                        .reqJson(json)
+                        .reqStatus(statuses[rand.nextInt(statuses.length)])
+                        .build())
                 .toList();
 
         WebTestClient webTestClient = WebTestClient
@@ -67,7 +67,7 @@ public class RedirectJsonControllerIntegrationTest {
         for (int i = 0; i < testJsons.length; i++) {
             int status = i;
             webTestClient.post()
-                    .uri(uriBuilder ->  uriBuilder
+                    .uri(uriBuilder -> uriBuilder
                             .path("/v1/rest/json/get-back")
                             .queryParam("status", testData.get(status).getReqStatus())
                             .build()

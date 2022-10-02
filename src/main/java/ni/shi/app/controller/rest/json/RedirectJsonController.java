@@ -1,4 +1,4 @@
-package ni.shi.app.controller.rest;
+package ni.shi.app.controller.rest.json;
 
 import ni.shi.app.AOP.logging.ToLog;
 import org.springframework.http.MediaType;
